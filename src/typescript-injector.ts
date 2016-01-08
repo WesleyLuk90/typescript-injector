@@ -1,4 +1,4 @@
-interface TConstructor<T> {
+export interface TConstructor<T> {
 	new (...args: any[]): T;
 	inject?: string[];
 	name?: string;

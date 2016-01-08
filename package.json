@@ -1,0 +1,25 @@
+{
+  "name": "typescript-injector",
+  "version": "1.0.0",
+  "description": "A dependency injector for typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "typescript": {
+    "definition": "typescript-injector.d.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WesleyLuk90/typescript-injector.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WesleyLuk90/typescript-injector/issues"
+  },
+  "homepage": "https://github.com/WesleyLuk90/typescript-injector#readme",
+  "devDependencies": {
+    "jasmine": "^2.4.1"
+  }
+}
