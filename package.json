@@ -4,7 +4,7 @@
   "description": "A dependency injector for typescript",
   "main": "./dist/typescript-injector.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "typescript": {
     "definition": "dist/typescript-injector.d.ts"
