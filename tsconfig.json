@@ -3,9 +3,20 @@
 		"module": "CommonJS",
 		"target": "es5",
 		"noImplicitAny": true,
+		"declaration": true,
 		"outDir": "dist"
 	},
 	"exclude": [
 		"dist"
-	]
+	],
+	"filesGlob": [
+		"src/**/*.ts"
+	],
+	"files": [
+		"src/spec/injector-spec.ts",
+		"src/typescript-injector.ts"
+	],
+	"atom": {
+		"rewriteTsconfig": true
+	}
 }

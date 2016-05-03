@@ -81,3 +81,11 @@ export class Injector {
 	}
 }
 
+export function inject(dependencyName: string){
+	return function (target: any, propertyKey: string | symbol, parameterIndex: number){
+		if(!target.inject){
+			target.inject = [];
+		}
+		target.inject[parameterIndex] = dependencyName;
+	}
+}

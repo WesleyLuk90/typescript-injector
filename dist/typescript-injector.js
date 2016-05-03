@@ -1,3 +1,4 @@
+"use strict";
 var Injector = (function () {
     function Injector() {
         this.instanceLookup = {};
@@ -65,5 +66,14 @@ var Injector = (function () {
         return instance;
     };
     return Injector;
-})();
+}());
 exports.Injector = Injector;
+function inject(dependencyName) {
+    return function (target, propertyKey, parameterIndex) {
+        if (!target.inject) {
+            target.inject = [];
+        }
+        target.inject[parameterIndex] = dependencyName;
+    };
+}
+exports.inject = inject;

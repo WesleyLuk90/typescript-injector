@@ -1,4 +1,5 @@
-import {Injector} from '../typescript-injector';
+/// <reference path="../../typings/jasmine/jasmine.d.ts"/>
+import {Injector, inject} from '../typescript-injector';
 
 describe("Injector", function() {
 	class Resolvable { }
@@ -27,7 +28,7 @@ describe("Injector", function() {
 
 	it("should resolve an instance", function(){
 		var resolvableInstance: Resolvable = {};
-		
+
 		var injector = new Injector();
 		injector.registerInstance<Resolvable>("Resolvable", resolvableInstance);
 
@@ -37,7 +38,7 @@ describe("Injector", function() {
 	it("should fail resolving a class with wrong dependencies", function(){
 		class InvalidResolvable1 {
 			constructor(public invalid: InvalidResolvable2){
-				
+
 			}
 		}
 		class InvalidResolvable2 {
@@ -86,5 +87,27 @@ describe("Injector", function() {
 		expect(function() {
 			injector.resolve<B>('B')
 		}).toThrowError(/Circular dependency/);
+	});
+
+	it("Should allow the decorator to create the inject property", () =>{
+		type B = any;
+		type C = any;
+		class A {
+			constructor(@inject("B") public b:B, @inject("C") public c:C){
+
+			}
+		}
+
+		var injector = new Injector();
+		injector.registerClass<A>('A', A);
+		injector.registerInstance<B>('B', {});
+		injector.registerInstance<C>('C', {});
+
+		expect((<any>A).inject[0]).toBe('B');
+		expect((<any>A).inject[1]).toBe('C');
+
+		expect(function() {
+			injector.resolve<A>('A')
+		}).not.toThrow();
 	});
 });
