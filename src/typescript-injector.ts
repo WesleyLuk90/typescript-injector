@@ -1,3 +1,4 @@
+module TypescriptInjector {
 export interface TConstructor<T> {
 	new (...args: any[]): T;
 	inject?: string[];
@@ -89,3 +90,10 @@ export function inject(dependencyName: string){
 		target.inject[parameterIndex] = dependencyName;
 	}
 }
+}
+
+declare module "typescript-injector" {
+	export = TypescriptInjector;
+}
+declare var module: any;
+module.exports = TypescriptInjector;
