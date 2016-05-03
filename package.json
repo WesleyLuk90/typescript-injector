@@ -5,10 +5,9 @@
   "main": "./dist/typescript-injector.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bundle": "dts-generator --out index.d.ts --project . --exclude src/spec/**/*.ts --exclude typings/**/*.d.ts --name typescript-injector"
   },
   "typescript": {
-    "definition": "index.d.ts"
+    "definition": "dist/typescript-injector.d.ts"
   },
   "repository": {
     "type": "git",
