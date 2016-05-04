@@ -37,7 +37,7 @@ export class Injector {
 	resolve<T>(dependency: string, trail?: string[]): T {
 		trail = trail || [];
 		if (trail.indexOf(dependency) > -1) {
-			throw new Error("Circular dependency " + trail.join(" -> "));
+			throw new Error(`Circular dependency ${trail.join(" -> ")} -> ${dependency}`);
 		}
 		trail.push(dependency);
 

@@ -86,7 +86,7 @@ describe("Injector", function() {
 
 		expect(function() {
 			injector.resolve<B>('B')
-		}).toThrowError(/Circular dependency/);
+		}).toThrowError(/Circular dependency B -> A -> B/);
 	});
 
 	it("Should allow the decorator to create the inject property", () =>{

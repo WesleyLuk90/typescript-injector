@@ -24,7 +24,7 @@ var Injector = (function () {
         var _this = this;
         trail = trail || [];
         if (trail.indexOf(dependency) > -1) {
-            throw new Error("Circular dependency " + trail.join(" -> "));
+            throw new Error("Circular dependency " + trail.join(" -> ") + " -> " + dependency);
         }
         trail.push(dependency);
         if (this.instanceLookup[dependency]) {
